@@ -17,9 +17,10 @@
 package com.lineage.support.preferences;
 
 import android.content.Context;
-import android.support.v7.preference.ListPreference;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+
+import androidx.preference.ListPreference;
 
 public class SecureSettingListPreference extends ListPreference {
     private boolean mAutoSummary = false;

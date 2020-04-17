@@ -24,7 +24,8 @@ import android.view.ViewParent;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.support.v7.preference.*;
+
+import androidx.preference.*;
 
 import com.lineage.support.R;
 

@@ -18,8 +18,9 @@
 package com.lineage.support.preferences;
 
 import android.content.Context;
-import android.support.v14.preference.SwitchPreference;
 import android.util.AttributeSet;
+
+import androidx.preference.SwitchPreference;
 
 public class GlobalSettingSwitchPreference extends SwitchPreference {
 
