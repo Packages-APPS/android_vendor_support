@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewParent;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
@@ -44,7 +45,9 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
     private String mDefaultText = "";
     private SeekBar mSeekBar;
     private TextView mTitle;
+    private TextView mSummary;
     private TextView mStatusText;
+    private boolean mShowStatusText = true;
 
     public CustomSeekBarPreference(Context context, AttributeSet attrs, int defStyleAttr,
             int defStyleRes) {
@@ -60,6 +63,7 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
         }
         mUnits = getAttributeStringValue(attrs, SETTINGS_NS, "units", "");
         mDefaultText = getAttributeStringValue(attrs, SETTINGS_NS, "defaultText", "Def");
+        mShowStatusText = attrs.getAttributeBooleanValue(SETTINGS_NS, "showStatusText", true);
 
         Integer id = a.getResourceId(R.styleable.CustomSeekBarPreference_units, 0);
         if (id > 0) {
@@ -112,6 +116,8 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
         this.setShouldDisableView(true);
         if (mTitle != null)
             mTitle.setEnabled(!disableDependent);
+        if (mSummary != null)
+            mSummary.setEnabled(!disableDependent);
         if (mSeekBar != null)
             mSeekBar.setEnabled(!disableDependent);
         if (mStatusText != null)
@@ -146,8 +152,10 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
         } else {
             mStatusText.setText(String.valueOf(mCurrentValue) + mUnits);
         }
+        mStatusText.setVisibility(mShowStatusText ? View.VISIBLE : View.GONE);
         mSeekBar.setProgress(mCurrentValue - mMin);
         mTitle = (TextView) view.findViewById(android.R.id.title);
+        mSummary = (TextView) view.findViewById(android.R.id.summary);
 
         view.setDividerAllowedAbove(false);
         //view.setDividerAllowedBelow(false);
@@ -169,6 +177,28 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
 
     public void setValue(int value) {
         mCurrentValue = value;
+    }
+
+    public void setUnits(String value) {
+        mUnits = value;
+    }
+
+    public void setDefaultText(String value) {
+        mDefaultText = value;
+    }
+
+    public void hideStatusText() {
+        mShowStatusText = false;
+        if (mStatusText != null) {
+            mStatusText.setVisibility(View.GONE);
+        }
+    }
+
+    public void showStatusText() {
+        mShowStatusText = true;
+        if (mStatusText != null) {
+            mStatusText.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -247,10 +277,11 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
 
     @Override
     public void setEnabled(boolean enabled) {
-        if (mSeekBar != null && mStatusText != null && mTitle != null) {
+        if (mSeekBar != null && mStatusText != null && mTitle != null && mSummary != null) {
             mSeekBar.setEnabled(enabled);
             mStatusText.setEnabled(enabled);
             mTitle.setEnabled(enabled);
+            mSummary.setEnabled(enabled);
         }
         super.setEnabled(enabled);
     }
