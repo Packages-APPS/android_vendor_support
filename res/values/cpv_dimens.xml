@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2018 The Dirty Unicorns Project
+<!-- Copyright (C) 2016 Jared Rummler <jared.rummler@gmail.com>
+     Copyright (C) 2020 Altair ROM
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,14 +17,14 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Color Picker -->
-    <string name="dialog_color_picker">Výběr barev</string>
-    <string name="press_color_to_apply">Stiskněte níže uvedenou barvu pro použití</string>
-    <string name="arrow_right">→</string>
-    <string name="arrow_down">↓</string>
-    <string name="hex">Hex:</string>
-    <string name="hex_hint">#ff000000</string>
-    <string name="set">Set</string>
-    <string name="color_default">Výchozí</string>
+    <!-- ColorPicker -->
+    <dimen name="cpv_required_padding">6dp</dimen>
+    <dimen name="cpv_dialog_preview_width">66dp</dimen>
+    <dimen name="cpv_dialog_preview_height">34dp</dimen>
+    <dimen name="cpv_column_width">58dp</dimen>
+    <dimen name="cpv_item_size">50dp</dimen>
+    <dimen name="cpv_item_horizontal_padding">8dp</dimen>
+    <dimen name="cpv_color_preference_normal">28dp</dimen>
+    <dimen name="cpv_color_preference_large">40dp</dimen>
 
 </resources>

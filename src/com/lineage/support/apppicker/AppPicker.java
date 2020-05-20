@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package com.lineage.support.preferences;
+package com.lineage.support.apppicker;
 
 import android.app.ListActivity;
 import android.content.Context;
