@@ -19,6 +19,6 @@
     package="com.lineage.support">
 
     <uses-sdk
-        android:minSdkVersion="27" />
+        android:minSdkVersion="28" />
 
 </manifest>
