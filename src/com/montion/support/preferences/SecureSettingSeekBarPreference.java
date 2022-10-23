@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 crDroid Android Project
+ * Copyright (C) 2016-2019 crDroid Android Project
  * Copyright (C) 2022 Altair ROM Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,28 +15,24 @@
  * limitations under the License.
  */
 
-package com.lineage.support.colorpicker;
+package com.montion.support.preferences;
 
 import android.content.Context;
-import android.provider.Settings;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 
-import com.lineage.support.preferences.SecureSettingsStore;
+public class SecureSettingSeekBarPreference extends CustomSeekBarPreference {
 
-public class SecureSettingColorPickerPreference extends ColorPickerPreference {
-
-    public SecureSettingColorPickerPreference(Context context, AttributeSet attrs, int defStyle) {
+    public SecureSettingSeekBarPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         setPreferenceDataStore(new SecureSettingsStore(context.getContentResolver()));
     }
 
-    public SecureSettingColorPickerPreference(Context context, AttributeSet attrs) {
+    public SecureSettingSeekBarPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setPreferenceDataStore(new SecureSettingsStore(context.getContentResolver()));
     }
 
-    public SecureSettingColorPickerPreference(Context context) {
+    public SecureSettingSeekBarPreference(Context context) {
         super(context, null);
         setPreferenceDataStore(new SecureSettingsStore(context.getContentResolver()));
     }

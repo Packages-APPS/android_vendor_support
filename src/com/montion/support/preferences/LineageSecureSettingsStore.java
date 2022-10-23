@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2017 AICP
+ * Copyright (C) 2016-2019 crDroid Android Project
+ * Copyright (C) 2022 Altair ROM Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,39 +15,41 @@
  * limitations under the License.
  */
 
-package com.lineage.support.preferences;
+package com.montion.support.preferences;
 
 import android.content.ContentResolver;
+import android.os.UserHandle;
 import android.preference.PreferenceDataStore;
-import android.provider.Settings;
 
-public class SystemSettingsStore extends androidx.preference.PreferenceDataStore
+import lineageos.providers.LineageSettings;
+
+public class LineageSecureSettingsStore extends androidx.preference.PreferenceDataStore
         implements PreferenceDataStore {
 
     private ContentResolver mContentResolver;
 
-    public SystemSettingsStore(ContentResolver contentResolver) {
+    public LineageSecureSettingsStore(ContentResolver contentResolver) {
         mContentResolver = contentResolver;
     }
 
     public boolean getBoolean(String key, boolean defValue) {
-        return getInt(key, defValue ? 1 : 0) != 0;
+        return LineageSettings.Secure.getIntForUser(mContentResolver, key, defValue ? 1 : 0, UserHandle.USER_CURRENT) != 0;
     }
 
     public float getFloat(String key, float defValue) {
-        return Settings.System.getFloat(mContentResolver, key, defValue);
+        return LineageSettings.Secure.getFloatForUser(mContentResolver, key, defValue, UserHandle.USER_CURRENT);
     }
 
     public int getInt(String key, int defValue) {
-        return Settings.System.getInt(mContentResolver, key, defValue);
+        return LineageSettings.Secure.getIntForUser(mContentResolver, key, defValue, UserHandle.USER_CURRENT);
     }
 
     public long getLong(String key, long defValue) {
-        return Settings.System.getLong(mContentResolver, key, defValue);
+        return LineageSettings.Secure.getLongForUser(mContentResolver, key, defValue, UserHandle.USER_CURRENT);
     }
 
     public String getString(String key, String defValue) {
-        String result = Settings.System.getString(mContentResolver, key);
+        String result = LineageSettings.Secure.getString(mContentResolver, key);
         return result == null ? defValue : result;
     }
 
@@ -55,19 +58,18 @@ public class SystemSettingsStore extends androidx.preference.PreferenceDataStore
     }
 
     public void putFloat(String key, float value) {
-        Settings.System.putFloat(mContentResolver, key, value);
+        LineageSettings.Secure.putFloatForUser(mContentResolver, key, value, UserHandle.USER_CURRENT);
     }
 
     public void putInt(String key, int value) {
-        Settings.System.putInt(mContentResolver, key, value);
+        LineageSettings.Secure.putIntForUser(mContentResolver, key, value, UserHandle.USER_CURRENT);
     }
 
     public void putLong(String key, long value) {
-        Settings.System.putLong(mContentResolver, key, value);
+        LineageSettings.Secure.putLongForUser(mContentResolver, key, value, UserHandle.USER_CURRENT);
     }
 
     public void putString(String key, String value) {
-        Settings.System.putString(mContentResolver, key, value);
+        LineageSettings.Secure.putString(mContentResolver, key, value);
     }
-
 }

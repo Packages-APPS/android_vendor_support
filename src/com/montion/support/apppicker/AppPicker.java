@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package com.lineage.support.apppicker;
+package com.montion.support.apppicker;
 
 import android.app.ListActivity;
 import android.content.Context;
@@ -38,7 +38,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import com.lineage.support.R;
+import com.montion.support.R;
 
 public class AppPicker extends ListActivity {
 

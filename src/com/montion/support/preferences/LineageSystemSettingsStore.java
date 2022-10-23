@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 AICP
+ * Copyright (C) 2016-2019 crDroid Android Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,39 +14,41 @@
  * limitations under the License.
  */
 
-package com.lineage.support.preferences;
+package com.montion.support.preferences;
 
 import android.content.ContentResolver;
+import android.os.UserHandle;
 import android.preference.PreferenceDataStore;
-import android.provider.Settings;
 
-public class GlobalSettingsStore extends androidx.preference.PreferenceDataStore
+import lineageos.providers.LineageSettings;
+
+public class LineageSystemSettingsStore extends androidx.preference.PreferenceDataStore
         implements PreferenceDataStore {
 
     private ContentResolver mContentResolver;
 
-    public GlobalSettingsStore(ContentResolver contentResolver) {
+    public LineageSystemSettingsStore(ContentResolver contentResolver) {
         mContentResolver = contentResolver;
     }
 
     public boolean getBoolean(String key, boolean defValue) {
-        return getInt(key, defValue ? 1 : 0) != 0;
+        return LineageSettings.System.getIntForUser(mContentResolver, key, defValue ? 1 : 0, UserHandle.USER_CURRENT) != 0;
     }
 
     public float getFloat(String key, float defValue) {
-        return Settings.Global.getFloat(mContentResolver, key, defValue);
+        return LineageSettings.System.getFloatForUser(mContentResolver, key, defValue, UserHandle.USER_CURRENT);
     }
 
     public int getInt(String key, int defValue) {
-        return Settings.Global.getInt(mContentResolver, key, defValue);
+        return LineageSettings.System.getIntForUser(mContentResolver, key, defValue, UserHandle.USER_CURRENT);
     }
 
     public long getLong(String key, long defValue) {
-        return Settings.Global.getLong(mContentResolver, key, defValue);
+        return LineageSettings.System.getLongForUser(mContentResolver, key, defValue, UserHandle.USER_CURRENT);
     }
 
     public String getString(String key, String defValue) {
-        String result = Settings.Global.getString(mContentResolver, key);
+        String result = LineageSettings.System.getString(mContentResolver, key);
         return result == null ? defValue : result;
     }
 
@@ -55,19 +57,18 @@ public class GlobalSettingsStore extends androidx.preference.PreferenceDataStore
     }
 
     public void putFloat(String key, float value) {
-        Settings.Global.putFloat(mContentResolver, key, value);
+        LineageSettings.System.putFloatForUser(mContentResolver, key, value, UserHandle.USER_CURRENT);
     }
 
     public void putInt(String key, int value) {
-        Settings.Global.putInt(mContentResolver, key, value);
+        LineageSettings.System.putIntForUser(mContentResolver, key, value, UserHandle.USER_CURRENT);
     }
 
     public void putLong(String key, long value) {
-        Settings.Global.putLong(mContentResolver, key, value);
+        LineageSettings.System.putLongForUser(mContentResolver, key, value, UserHandle.USER_CURRENT);
     }
 
     public void putString(String key, String value) {
-        Settings.Global.putString(mContentResolver, key, value);
+        LineageSettings.System.putString(mContentResolver, key, value);
     }
-
 }

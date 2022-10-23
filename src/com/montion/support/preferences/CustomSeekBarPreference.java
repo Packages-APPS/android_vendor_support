@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.lineage.support.preferences;
+package com.montion.settings.preference;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -33,7 +33,7 @@ import android.widget.Toast;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.preference.*;
 
-import com.lineage.support.R;
+import com.montion.support.preferencest.R;
 
 public class CustomSeekBarPreference extends Preference implements SeekBar.OnSeekBarChangeListener {
     protected final String TAG = getClass().getName();

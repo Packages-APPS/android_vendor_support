@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.lineage.support.preferences;
+package com.montion.support.preferences;
 
 import android.content.Context;
 import androidx.preference.ListPreference;

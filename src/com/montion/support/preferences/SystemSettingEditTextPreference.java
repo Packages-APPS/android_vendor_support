@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.lineage.support.preferences;
+package com.montion.support.preferences;
 
 import android.content.Context;
 import android.text.TextUtils;

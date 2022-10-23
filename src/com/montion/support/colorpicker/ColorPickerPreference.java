@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 
-package com.lineage.support.colorpicker;
+package com.montion.support.colorpicker;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -48,7 +48,7 @@ import android.widget.LinearLayout;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
-import com.lineage.support.R;
+import com.montion.support.R;
 
 /**
  * A preference type that allows a user to choose a time

@@ -15,29 +15,29 @@
  * limitations under the License.
  */
 
-package com.lineage.support.colorpicker;
+package com.montion.support.colorpicker;
 
 import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 
-import com.lineage.support.preferences.SystemSettingsStore;
+import com.montion.support.preferences.SecureSettingsStore;
 
-public class SystemSettingColorPickerPreference extends ColorPickerPreference {
+public class SecureSettingColorPickerPreference extends ColorPickerPreference {
 
-    public SystemSettingColorPickerPreference(Context context, AttributeSet attrs, int defStyle) {
+    public SecureSettingColorPickerPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
+        setPreferenceDataStore(new SecureSettingsStore(context.getContentResolver()));
     }
 
-    public SystemSettingColorPickerPreference(Context context, AttributeSet attrs) {
+    public SecureSettingColorPickerPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
+        setPreferenceDataStore(new SecureSettingsStore(context.getContentResolver()));
     }
 
-    public SystemSettingColorPickerPreference(Context context) {
+    public SecureSettingColorPickerPreference(Context context) {
         super(context, null);
-        setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
+        setPreferenceDataStore(new SecureSettingsStore(context.getContentResolver()));
     }
 }

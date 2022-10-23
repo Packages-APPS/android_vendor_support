@@ -15,25 +15,25 @@
  * limitations under the License.
  */
 
-package com.lineage.support.preferences;
+package com.montion.support.preferences;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-public class SystemSettingSeekBarPreference extends CustomSeekBarPreference {
+public class LineageSystemSettingSeekBarPreference extends CustomSeekBarPreference {
 
-    public SystemSettingSeekBarPreference(Context context, AttributeSet attrs, int defStyle) {
+    public LineageSystemSettingSeekBarPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
+        setPreferenceDataStore(new LineageSystemSettingsStore(context.getContentResolver()));
     }
 
-    public SystemSettingSeekBarPreference(Context context, AttributeSet attrs) {
+    public LineageSystemSettingSeekBarPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
+        setPreferenceDataStore(new LineageSystemSettingsStore(context.getContentResolver()));
     }
 
-    public SystemSettingSeekBarPreference(Context context) {
+    public LineageSystemSettingSeekBarPreference(Context context) {
         super(context, null);
-        setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
+        setPreferenceDataStore(new LineageSystemSettingsStore(context.getContentResolver()));
     }
 }

@@ -14,31 +14,30 @@
  * limitations under the License.
  */
 
-package com.lineage.support.preferences;
+package com.montion.support.preferences;
 
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.provider.Settings;
 
 import androidx.preference.ListPreference;
 
-public class SystemSettingListPreference extends ListPreference {
+public class SecureSettingListPreference extends ListPreference {
     private boolean mAutoSummary = false;
 
-    public SystemSettingListPreference(Context context, AttributeSet attrs, int defStyle) {
+    public SecureSettingListPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
+        setPreferenceDataStore(new SecureSettingsStore(context.getContentResolver()));
     }
 
-    public SystemSettingListPreference(Context context, AttributeSet attrs) {
+    public SecureSettingListPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
+        setPreferenceDataStore(new SecureSettingsStore(context.getContentResolver()));
     }
 
-    public SystemSettingListPreference(Context context) {
+    public SecureSettingListPreference(Context context) {
         super(context);
-        setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
+        setPreferenceDataStore(new SecureSettingsStore(context.getContentResolver()));
     }
 
     @Override
@@ -67,4 +66,6 @@ public class SystemSettingListPreference extends ListPreference {
         // Instead, we better do
         setValue(restoreValue ? getPersistedString((String) defaultValue) : (String) defaultValue);
     }
+
 }
+
