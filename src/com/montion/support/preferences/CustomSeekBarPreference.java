@@ -33,7 +33,7 @@ import android.widget.Toast;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.preference.*;
 
-import com.montion.support.preferencest.R;
+import com.montion.support.preferences.R;
 
 public class CustomSeekBarPreference extends Preference implements SeekBar.OnSeekBarChangeListener {
     protected final String TAG = getClass().getName();
