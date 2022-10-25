@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.montion.settings.preference;
+package com.montion.support.preferences;
 
 import android.content.Context;
 import android.content.res.TypedArray;
